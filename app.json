@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "dia-dos-namo-gatinha",
+    "slug": "dia-dos-namo-gatinha",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
