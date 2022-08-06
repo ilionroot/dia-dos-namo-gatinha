@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "824625920394",
+    "project_id": "dia-dos-namo-gatinha",
+    "storage_bucket": "dia-dos-namo-gatinha.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:824625920394:android:67cad1d7acef09f9f6b073",
+        "android_client_info": {
+          "package_name": "com.diadosnamogatinha"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "824625920394-8u2i1rbpkvfkj5dd1m59ljlg097cmsdh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRNfz-TmYscBgiIBpXiUS2XnqLvDEo5X4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "824625920394-8u2i1rbpkvfkj5dd1m59ljlg097cmsdh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,10 +1,8 @@
 {
   "expo": {
-    "name": "dia-dos-namo-gatinha",
-    "slug": "dia-dos-namo-gatinha",
+    "name": "aoba",
+    "slug": "aoba",
     "version": "1.0.0",
-    "assetBundlePatterns": [
-      "**/*"
-    ]
+    "assetBundlePatterns": ["**/*"]
   }
 }
