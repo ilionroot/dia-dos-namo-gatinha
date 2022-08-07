@@ -22,6 +22,8 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import com.airbnb.android.react.lottie.LottiePackage;
 
+import com.microsoft.codepush.react.CodePush;
+
 import io.invertase.firebase.messaging.ReactNativeFirebaseMessagingPackage;
 
 public class MainApplication extends Application implements ReactApplication {
@@ -47,6 +49,11 @@ public class MainApplication extends Application implements ReactApplication {
     @Override
     protected String getJSMainModuleName() {
       return "index";
+    }
+
+     @Override
+    protected String getJSBundleFile() {
+        return CodePush.getJSBundleFile();
     }
   });
 

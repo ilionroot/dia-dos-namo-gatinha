@@ -2,6 +2,7 @@ import React from "react";
 import { Dimensions, Animated } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import GeralContextProvider from "./src/contexts/geral";
+import CodePush from "react-native-code-push";
 
 import SplashScreen from "react-native-splash-screen";
 import { NavigationContainer } from "@react-navigation/native";
@@ -12,13 +13,14 @@ import Splash from "./src/pages/Splash";
 import Home from "./src/pages/Home";
 
 import colors from "./colors";
+import "./ignoreWarnings";
 
 const BottomTabsNavigator = createBottomTabNavigator();
 
 // Icons for tabs
 import { AntDesign } from "react-native-vector-icons";
 
-export default function App() {
+function App() {
   const [selectedIconAnimations] = React.useState([
     new Animated.Value(0),
     new Animated.Value(0),
@@ -253,3 +255,7 @@ export default function App() {
     </GeralContextProvider>
   );
 }
+
+export default CodePush({
+  checkFrequency: CodePush.CheckFrequency.ON_APP_RESUME,
+})(App);

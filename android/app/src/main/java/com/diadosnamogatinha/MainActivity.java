@@ -34,6 +34,7 @@ if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
           notificationChannel.setVibrationPattern(new long[]{400, 400});
           notificationChannel.setLockscreenVisibility(NotificationCompat.VISIBILITY_PUBLIC);
           NotificationManager manager = getSystemService(NotificationManager.class);
+
           manager.createNotificationChannel(notificationChannel);
       }
 

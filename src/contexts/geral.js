@@ -12,7 +12,7 @@ const GeralContextProvider = (props) => {
   const [token, setToken] = useState("");
   const [last, setLast] = useState("");
   const [received, setReceived] = useState(false);
-  const [name] = useState("gatinha");
+  const [name] = useState("gatinho");
 
   async function verifyLocalData() {
     const lastStorage = await AsyncStorage.getItem("last");
