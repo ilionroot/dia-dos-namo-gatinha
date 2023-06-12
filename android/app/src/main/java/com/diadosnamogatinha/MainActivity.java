@@ -22,20 +22,32 @@ public class MainActivity extends ReactActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-          NotificationChannel notificationChannel = new NotificationChannel("missing-you", "🥰", NotificationManager.IMPORTANCE_HIGH);
-          notificationChannel.setShowBadge(true);
-          notificationChannel.setDescription("");
+          NotificationChannel defaultChannel = new NotificationChannel("missing-you", "🥰", NotificationManager.IMPORTANCE_HIGH);
+          defaultChannel.setShowBadge(true);
+          defaultChannel.setDescription("");
           AudioAttributes att = new AudioAttributes.Builder()
                   .setUsage(AudioAttributes.USAGE_NOTIFICATION)
                   .setContentType(AudioAttributes.CONTENT_TYPE_SPEECH)
                   .build();
-          notificationChannel.setSound(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE + "://" + getPackageName() + "/raw/ai"), att);
-          notificationChannel.enableVibration(true);
-          notificationChannel.setVibrationPattern(new long[]{400, 400});
-          notificationChannel.setLockscreenVisibility(NotificationCompat.VISIBILITY_PUBLIC);
+          defaultChannel.setSound(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE + "://" + getPackageName() + "/raw/ai"), att);
+          defaultChannel.enableVibration(true);
+          defaultChannel.setVibrationPattern(new long[]{400, 400});
+          defaultChannel.setLockscreenVisibility(NotificationCompat.VISIBILITY_PUBLIC);
           NotificationManager manager = getSystemService(NotificationManager.class);
 
-          manager.createNotificationChannel(notificationChannel);
+          manager.createNotificationChannel(defaultChannel);
+
+          // Message Channel
+
+          NotificationChannel messageChannel = new NotificationChannel("message", "Message Channel etchaaa", NotificationManager.IMPORTANCE_HIGH);
+          messageChannel.setShowBadge(true);
+          messageChannel.setDescription("");
+          messageChannel.setSound(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE + "://" + getPackageName() + "/raw/ai"), att);
+          messageChannel.enableVibration(true);
+          messageChannel.setVibrationPattern(new long[]{400, 400});
+          messageChannel.setLockscreenVisibility(NotificationCompat.VISIBILITY_PUBLIC);
+
+          manager.createNotificationChannel(messageChannel);
       }
 
     // Set the theme to AppTheme BEFORE onCreate to support 

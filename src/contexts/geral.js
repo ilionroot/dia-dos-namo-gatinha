@@ -6,6 +6,8 @@ const GeralContext = createContext({});
 
 import ReceivedComponent from "../components/ReceivedComponent";
 
+import * as RootNavigation from "../../RootNavigation";
+
 import { api } from "../services/api";
 
 const GeralContextProvider = (props) => {
@@ -39,26 +41,46 @@ const GeralContextProvider = (props) => {
         });
       });
 
+    async function switchContext(channelId, wantToWarn) {
+      switch (channelId) {
+        case "missing-you":
+          setLast(
+            new Date(
+              remoteMessage.sentTime - new Date().getTimezoneOffset() * 60000
+            ).toISOString()
+          );
+          await AsyncStorage.setItem("last", String(remoteMessage.sentTime));
+          wantToWarn && setReceived(true);
+          break;
+        case "message":
+          RootNavigation.navigate("Interactions");
+          break;
+        default:
+          break;
+      }
+    }
+
     // Clicar na notificacao com o app aberto em segundo plano
 
     messaging().onNotificationOpenedApp(async (remoteMessage) => {
-      setReceived(true);
+      const channelId = remoteMessage.notification.android.channelId;
+      await switchContext(channelId, false);
     });
 
     // Clicar na notificacao com o app fechado
 
     messaging()
       .getInitialNotification()
-      .then((remoteMessage) => {});
+      .then(async (remoteMessage) => {
+        if (remoteMessage) {
+          const channelId = remoteMessage.notification.android.channelId;
+          await switchContext(channelId, false);
+        }
+      });
 
     messaging().onMessage(async (remoteMessage) => {
-      setLast(
-        new Date(
-          remoteMessage.sentTime - new Date().getTimezoneOffset() * 60000
-        ).toISOString()
-      );
-      await AsyncStorage.setItem("last", String(remoteMessage.sentTime));
-      setReceived(true);
+      const channelId = remoteMessage.notification.android.channelId;
+      await switchContext(channelId, true);
     });
 
     return messaging().onTokenRefresh((token) => {

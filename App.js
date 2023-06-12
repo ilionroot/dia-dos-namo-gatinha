@@ -7,10 +7,16 @@ import CodePush from "react-native-code-push";
 import SplashScreen from "react-native-splash-screen";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createStackNavigator } from "@react-navigation/stack";
 import { setCustomText } from "react-native-global-props";
 
 import Splash from "./src/pages/Splash";
 import Home from "./src/pages/Home";
+import Messages from "./src/pages/Messages";
+import Message from "./src/pages/Message";
+import Pics from "./src/pages/Pics";
+
+import { navigationRef } from "./RootNavigation";
 
 import colors from "./colors";
 import "./ignoreWarnings";
@@ -19,6 +25,21 @@ const BottomTabsNavigator = createBottomTabNavigator();
 
 // Icons for tabs
 import { AntDesign } from "react-native-vector-icons";
+
+const MessageStack = createStackNavigator();
+
+const MessagesRoutes = () => {
+  return (
+    <MessageStack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
+      <MessageStack.Screen name="Messages" component={Messages} />
+      <MessageStack.Screen name="Message" component={Message} />
+    </MessageStack.Navigator>
+  );
+};
 
 function App() {
   const [selectedIconAnimations] = React.useState([
@@ -44,7 +65,7 @@ function App() {
 
   return (
     <GeralContextProvider>
-      <NavigationContainer>
+      <NavigationContainer ref={navigationRef}>
         <StatusBar style="dark" />
         <BottomTabsNavigator.Navigator
           screenOptions={{
@@ -65,8 +86,8 @@ function App() {
           initialRouteName="Home"
         >
           <BottomTabsNavigator.Screen
-            name="Homi"
-            component={Home}
+            name="Interactions"
+            component={MessagesRoutes}
             options={{
               tabBarIcon: ({ color, focused }) => (
                 <Animated.View
@@ -189,8 +210,8 @@ function App() {
             }}
           />
           <BottomTabsNavigator.Screen
-            name="Hom"
-            component={Home}
+            name="Pics"
+            component={Pics}
             options={{
               tabBarIcon: ({ color, focused }) => (
                 <Animated.View

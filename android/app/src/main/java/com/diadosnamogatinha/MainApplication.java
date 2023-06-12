@@ -51,7 +51,7 @@ public class MainApplication extends Application implements ReactApplication {
       return "index";
     }
 
-     @Override
+    @Override
     protected String getJSBundleFile() {
         return CodePush.getJSBundleFile();
     }

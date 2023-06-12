@@ -1,4 +1,4 @@
-import { registerRootComponent } from "expo";
+import { AppRegistry } from "react-native";
 import messaging from "@react-native-firebase/messaging";
 import App from "./App";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -9,4 +9,4 @@ messaging().setBackgroundMessageHandler(async (remoteMessage) => {
   console.log("Message handled in the background!", remoteMessage);
 });
 
-registerRootComponent(App);
+AppRegistry.registerComponent("main", () => App);
