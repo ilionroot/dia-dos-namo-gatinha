@@ -1,8 +1,21 @@
 {
+  "name": "aoba",
   "expo": {
     "name": "aoba",
     "slug": "aoba",
     "version": "1.0.0",
-    "assetBundlePatterns": ["**/*"]
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "android": {
+      "package": "com.ilionroot.moi"
+    },
+    "ios": {
+      "bundleIdentifier": "com.ilionroot.moi"
+    }
+  },
+  "react-native-google-mobile-ads": {
+    "android_app_id": "ca-app-pub-5605185420386022~1245458743",
+    "ios_app_id": "ca-app-pub-xxxxxxxx~xxxxxxxx"
   }
 }

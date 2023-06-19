@@ -1,4 +1,4 @@
-package com.diadosnamogatinha.newarchitecture;
+package com.ilionroot.moi.newarchitecture;
 
 import android.app.Application;
 import androidx.annotation.NonNull;
@@ -19,9 +19,9 @@ import com.facebook.react.fabric.CoreComponentsRegistry;
 import com.facebook.react.fabric.EmptyReactNativeConfig;
 import com.facebook.react.fabric.FabricJSIModuleProvider;
 import com.facebook.react.uimanager.ViewManagerRegistry;
-import com.diadosnamogatinha.BuildConfig;
-import com.diadosnamogatinha.newarchitecture.components.MainComponentsRegistry;
-import com.diadosnamogatinha.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
+import com.ilionroot.moi.BuildConfig;
+import com.ilionroot.moi.newarchitecture.components.MainComponentsRegistry;
+import com.ilionroot.moi.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
 import java.util.ArrayList;
 import java.util.List;
 

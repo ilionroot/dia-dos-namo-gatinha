@@ -1,11 +1,39 @@
 import React, { useRef, useEffect } from "react";
-import { View, Text, TouchableOpacity, Animated } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  Animated,
+  Dimensions,
+} from "react-native";
 import { useGeral } from "../../contexts/geral";
 
 import LottieView from "lottie-react-native";
 
 import { api } from "../../services/api";
 import { styles } from "./styles";
+
+import {
+  AppOpenAd,
+  InterstitialAd,
+  RewardedAd,
+  BannerAd,
+  TestIds,
+  BannerAdSize,
+} from "react-native-google-mobile-ads";
+
+let screenWidth = Dimensions.get("screen").width.toFixed(0);
+
+// # App Open
+// AppOpenAd.createForAdRequest(TestIds.APP_OPEN);
+
+// # Interstitial
+// InterstitialAd.createForAdRequest(TestIds.INTERSTITIAL);
+
+// # Rewarded
+// RewardedAd.createForAdRequest(TestIds.REWARDED);
+
+// # Banners
 
 const Home = () => {
   const { last, name } = useGeral();
@@ -88,6 +116,8 @@ const Home = () => {
       >
         Pressione o ❤ para avisar
       </Animated.Text>
+
+      {/* <BannerAd size={`${screenWidth}x100`} unitId={TestIds.BANNER} /> */}
     </View>
   );
 };

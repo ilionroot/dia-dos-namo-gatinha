@@ -41,7 +41,7 @@ const GeralContextProvider = (props) => {
         });
       });
 
-    async function switchContext(channelId, wantToWarn) {
+    async function switchContext(channelId, wantToWarn, remoteMessage) {
       switch (channelId) {
         case "missing-you":
           setLast(
@@ -64,7 +64,7 @@ const GeralContextProvider = (props) => {
 
     messaging().onNotificationOpenedApp(async (remoteMessage) => {
       const channelId = remoteMessage.notification.android.channelId;
-      await switchContext(channelId, false);
+      await switchContext(channelId, false, remoteMessage);
     });
 
     // Clicar na notificacao com o app fechado
@@ -74,13 +74,13 @@ const GeralContextProvider = (props) => {
       .then(async (remoteMessage) => {
         if (remoteMessage) {
           const channelId = remoteMessage.notification.android.channelId;
-          await switchContext(channelId, false);
+          await switchContext(channelId, false, remoteMessage);
         }
       });
 
     messaging().onMessage(async (remoteMessage) => {
       const channelId = remoteMessage.notification.android.channelId;
-      await switchContext(channelId, true);
+      await switchContext(channelId, true, remoteMessage);
     });
 
     return messaging().onTokenRefresh((token) => {

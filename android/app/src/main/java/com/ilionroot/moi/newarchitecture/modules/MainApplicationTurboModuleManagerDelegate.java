@@ -1,4 +1,4 @@
-package com.diadosnamogatinha.newarchitecture.modules;
+package com.ilionroot.moi.newarchitecture.modules;
 
 import com.facebook.jni.HybridData;
 import com.facebook.react.ReactPackage;

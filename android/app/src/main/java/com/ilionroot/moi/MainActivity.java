@@ -1,4 +1,4 @@
-package com.diadosnamogatinha;
+package com.ilionroot.moi;
 
 import android.app.NotificationManager;
 import android.app.NotificationChannel;
